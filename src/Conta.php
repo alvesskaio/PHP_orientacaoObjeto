@@ -2,17 +2,17 @@
 
 class Conta
 {
-    private $titular;
+    private Titular $titular;
     private float  $saldo;
     private static $numeroDeContas = 0;
 
     public function __construct(Titular $titular)
     {
-        $this->titular =$titular;
+        $this->titular = $titular;
         $this->saldo       = 0;
         self::$numeroDeContas++;
     }
-    
+
     public function __destruct()
     {
         self::$numeroDeContas--;
@@ -57,12 +57,15 @@ class Conta
     public function RecuperaNomeTitular()
     {
         return $this->titular->recuperaNome();
-}
+    }
 
     public function RecuperaCpfTitular()
     {
         return $this->titular->recuperaCpf();
     }
 
-   
+    public function RecuperaEnderecoTitular()
+    {
+        return $this->titular->recuperaEndereco();
+    }
 }

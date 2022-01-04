@@ -3,12 +3,14 @@
 class Titular
 {
     private CPF $cpf;
+    private Endereco $endereco;
     private string $nome;
 
-    public function __construct(string $nome, CPF $cpf)
+    public function __construct(string $nome, CPF $cpf,  Endereco $endereco)
     {
         $this-> cpf = $cpf;
         $this-> nome = $nome;
+        $this-> endereco = $endereco;
         $this-> validaNome($nome);
 
     }
@@ -30,6 +32,10 @@ class Titular
             exit();
         }
 
+    }
+    public function recuperaEndereco()
+    {
+        return $this->endereco;
     }
 
 }
